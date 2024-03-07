@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+<my-element id="76543333" class="myClass">
+    My element
+
+</my-element>
+<script>
+    class CustomElement extends HTMLElement{
+    constructor() {
+    super();
+    this.textContent='MY TEXT ELEMENT';
+    }
+    }
+customElements.define('my-element')
+</script>
+
 </body>
 </html>
