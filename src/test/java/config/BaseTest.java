@@ -20,9 +20,6 @@ import java.time.Duration;
 
 public class BaseTest {
     private WebDriver driver;
-    public WebDriver getDriver() {
-        return driver;
-    }
 
 @BeforeMethod
 @Parameters("browser")
@@ -61,4 +58,7 @@ public void setUp(@Optional("firefox") String browser) {
             driver.quit();
         }
 }
+    public WebDriver getDriver() {
+    return driver;
+    }
 }

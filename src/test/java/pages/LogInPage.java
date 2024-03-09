@@ -1,10 +1,7 @@
 package pages;
 
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
@@ -12,8 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
-public class LoginPage extends BasePage {
+public class LogInPage extends BasePage {
     @FindBy(xpath = "//input[@id='email']")
     WebElement emailField;
     // может быть таким же как в Сайн ап?
@@ -28,17 +26,17 @@ public class LoginPage extends BasePage {
     WebElement yallaButton;
 
 
-    public LoginPage(WebDriver driver) {
-        setDriver(driver);
+    public LogInPage(WebDriver driver) {
+        super(driver);
         PageFactory.initElements(new AjaxElementLocatorFactory(driver,20), this);
     }
 
-    public LoginPage fillEmailField(String email) {
+    public LogInPage fillEmailField(String email) {
         emailField.sendKeys(email);
         return this;
     }
 
-    public LoginPage fillPasswordField(String password) {
+    public LogInPage fillPasswordField(String password) {
         passwordField.sendKeys(password);
         return this;
     }
@@ -48,7 +46,7 @@ public class LoginPage extends BasePage {
        Alert alert = getAlertIfPresent();
        if(alert != null) {
            alert.accept();
-           return new LoginPage(driver);
+           return new LogInPage(driver);
        }else
        {
            return new SearchPage(driver);
@@ -64,11 +62,10 @@ public class LoginPage extends BasePage {
             return null;
         }
     }
+
+public void tryToFindElement() {
+    List<WebElement> list = driver.findElements(By.xpath("//a"));
+    System.out.println("SIZE :" + list.size());
 }
-//
-//public void tryToFindElement() {
-//    List<WebElement> list = driver.findElements(By.xpath("//a"));
-//    System.out.println("SIZE :" + list.size());
-//}
-//}
+}
 

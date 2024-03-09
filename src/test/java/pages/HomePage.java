@@ -21,7 +21,7 @@ public class HomePage extends BasePage {
     WebElement yallaButton;
 
     public HomePage(WebDriver driver) {
-        setDriver(driver);
+        super(driver);
         //??super(driver); что значит супер?
         driver.get("https://ilcarro.web.app/");
         PageFactory.initElements(new AjaxElementLocatorFactory(driver,20), this);

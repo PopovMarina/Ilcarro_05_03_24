@@ -33,7 +33,7 @@ public class SignUpPage extends BasePage{
     WebElement yallaButton;
 
     public SignUpPage(WebDriver driver) {
-        setDriver(driver);
+        super(driver);
         PageFactory.initElements(new AjaxElementLocatorFactory(driver,20),this);
     }
 
